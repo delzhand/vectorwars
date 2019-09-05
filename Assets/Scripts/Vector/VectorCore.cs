@@ -2,6 +2,10 @@
  * VectorCore contains those values that never change across character growth,
  * IVs, or client
  */
+
+using System;
+
+[Serializable]
 public class VectorCore
 {
     public int mem;
