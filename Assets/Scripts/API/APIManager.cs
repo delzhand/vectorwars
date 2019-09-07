@@ -7,17 +7,14 @@ using UnityEngine.Networking;
 
 public class APIManager : MonoBehaviour
 {
+    GameObject indicator;
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Checking version...");
+        indicator = (GameObject)Instantiate(Resources.Load("Interface/API Indicator"), new Vector3(0, 0, 0), Quaternion.identity);
         StartCoroutine(GetVersionNumber());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public IEnumerator GetVersionNumber()
@@ -41,6 +38,11 @@ public class APIManager : MonoBehaviour
                 else
                 {
                     Debug.Log("Up to date! (v" + r.VersionNumber() + ")");
+                    foreach (SpriteRenderer s in indicator.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        s.gameObject.AddComponent<FadeOut>().SetDuration(.2f);
+                    }
+                    Destroy(indicator, .2f);
                 }
             }
             catch(Exception e)
