@@ -7,48 +7,56 @@ using UnityEngine.Networking;
 
 public class APIManager : MonoBehaviour
 {
-    GameObject indicator;
+    public delegate void APICallFinished();
+    public event APICallFinished apiCallFinished;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartVersionCheck()
     {
+        Transform t = GameObject.Find("UI/Full-size Panel/16:9 Panel").transform;
+        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/API Indicator"), new Vector3(0, 0, 0), Quaternion.identity);
+        g.name = "API Indicator";
+        g.transform.SetParent(t, false);
         Debug.Log("Checking version...");
-        indicator = (GameObject)Instantiate(Resources.Load("Interface/API Indicator"), new Vector3(0, 0, 0), Quaternion.identity);
         StartCoroutine(GetVersionNumber());
     }
 
     public IEnumerator GetVersionNumber()
     {
         UnityWebRequest www = UnityWebRequest.Get("http://vector-wars.lndo.site/api/v1");
+        //www = UnityWebRequest.Get("http://localhost:32783/api/v1");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log(www.error);
+            Debug.Log("Communication error:" + www.error);
+
         }
         else
         {
+            BasicResponse r = null;
             try
             {
-                BasicResponse r = JsonUtility.FromJson<BasicResponse>(www.downloadHandler.text);
-                if (updateFound(r))
-                {
-                    doUpdate(r);
-                }
-                else
-                {
-                    Debug.Log("Up to date! (v" + r.VersionNumber() + ")");
-                    foreach (SpriteRenderer s in indicator.GetComponentsInChildren<SpriteRenderer>())
-                    {
-                        s.gameObject.AddComponent<FadeOut>().SetDuration(.2f);
-                    }
-                    Destroy(indicator, .2f);
-                }
+                r = JsonUtility.FromJson<BasicResponse>(www.downloadHandler.text);
             }
             catch(Exception e)
             {
                 Debug.Log(e.Message);
             }
+            if (updateFound(r))
+            {
+                doUpdate(r);
+            }
+            else
+            {
+                Debug.Log("Up to date! (v" + r.VersionNumber() + ")");
+                apiCallFinished();
+                //foreach (SpriteRenderer s in indicator.GetComponentsInChildren<SpriteRenderer>())
+                //{
+                //    s.gameObject.AddComponent<FadeOut>().SetDuration(.2f);
+                //}
+                //Destroy(indicator, .2f);
+            }
+
         }
     }
 
