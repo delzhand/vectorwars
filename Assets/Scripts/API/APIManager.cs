@@ -16,7 +16,7 @@ public class APIManager : MonoBehaviour
         GameObject g = (GameObject)Instantiate(Resources.Load("Interface/API Indicator"), new Vector3(0, 0, 0), Quaternion.identity);
         g.name = "API Indicator";
         g.transform.SetParent(t, false);
-        Debug.Log("Checking version...");
+        Console.Log("Checking version...");
         StartCoroutine(GetVersionNumber());
     }
 
@@ -28,7 +28,7 @@ public class APIManager : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log("Communication error:" + www.error);
+            Console.Log("Communication error:" + www.error);
 
         }
         else
@@ -48,7 +48,7 @@ public class APIManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Up to date! (v" + r.VersionNumber() + ")");
+                Console.Log("Up to date! (v" + r.VersionNumber() + ")");
                 apiCallFinished();
                 //foreach (SpriteRenderer s in indicator.GetComponentsInChildren<SpriteRenderer>())
                 //{
@@ -74,11 +74,11 @@ public class APIManager : MonoBehaviour
             try
             {
                 File.WriteAllBytes(savePath, www.downloadHandler.data);
-                Debug.Log(url + " downloaded.");
+                Console.Log(url + " downloaded.");
             }
             catch (Exception e)
             {
-                Debug.Log(e.Message);
+                Console.Log(e.Message);
             }
         }
 
@@ -86,22 +86,22 @@ public class APIManager : MonoBehaviour
 
     public IEnumerator GetVectorCores()
     {
-        Debug.Log("Downloading...");
+        Console.Log("Downloading...");
         UnityWebRequest www = UnityWebRequest.Get("http://vector-wars.lndo.site/api/v1/list-cores");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log(www.error);
+            Console.Log(www.error);
         }
         else
         {
             try
             {
-                Debug.Log("Applying update...");
+                Console.Log("Applying update...");
                 if (!Directory.Exists(Application.persistentDataPath + "/GameData"))
                 {
-                    Debug.Log("No Game Data Found. Initializing...");
+                    Console.Log("No Game Data Found. Initializing...");
                     Directory.CreateDirectory(Application.persistentDataPath + "/GameData");
                 }
                 File.WriteAllText(Application.persistentDataPath + "/GameData/VectorCores.json", www.downloadHandler.text);
@@ -113,12 +113,12 @@ public class APIManager : MonoBehaviour
                 foreach (VectorCore v in vcores.vector_core_list)
                 {
                     StartCoroutine(DownloadFile(v.sprite, Application.persistentDataPath + "/GameData/Sprites/" + v.name + "_sprite.png"));
-                    Debug.Log(v.name + " downloaded.");
+                    Console.Log(v.name + " downloaded.");
                 }
             }
             catch(Exception e)
             {
-                Debug.Log(e.Message);
+                Console.Log(e.Message);
             }
         }
     }
@@ -132,9 +132,9 @@ public class APIManager : MonoBehaviour
 
     private void doUpdate(BasicResponse r)
     {
-        Debug.Log("Update data available! v" + r.VersionNumber() + " found. Updating...");
+        Console.Log("Update data available! v" + r.VersionNumber() + " found. Updating...");
         PlayerPrefs.SetString("version", r.VersionNumber());
         StartCoroutine(GetVectorCores());
-        Debug.Log("Update complete!");
+        Console.Log("Update complete!");
     }
 }
