@@ -12,7 +12,7 @@ public class VersionNumberText : MonoBehaviour
 
     public void UpdateVersionNumber()
     {
-        GameObject.Find("Game Manager").GetComponent<APIManager>().apiCallFinished -= UpdateVersionNumber;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>().apiCallFinished -= UpdateVersionNumber;
         GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version");
     }
 }
