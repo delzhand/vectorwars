@@ -32,6 +32,7 @@ public class StateManager : MonoBehaviour
         Transform toDestroy = GameObject.FindWithTag("UiRoot").transform.Find(screen.ToString());
         if (toDestroy)
         {
+            Console.Log("Unloading " + screen.ToString() + " element.");
             Destroy(toDestroy.gameObject);
         }
         screen = s;
@@ -39,6 +40,6 @@ public class StateManager : MonoBehaviour
         g.name = s.ToString();
         Transform uiRoot = GameObject.FindWithTag("UiRoot").transform;
         g.transform.SetParent(uiRoot, false);
-
+        Console.Log("Loaded " + s.ToString() + " element.");
     }
 }
