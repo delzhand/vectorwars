@@ -6,23 +6,33 @@ using UnityEngine.UI;
 public class TitleScreen : MonoBehaviour
 {
     private APIManager apiManager;
+    public GameObject versionNumberText;
 
     // Start is called before the first frame update
     void Start()
     {
+        versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
+        string currentVersion = PlayerPrefs.GetString("version_id", "1");
         apiManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>();
-        apiManager.apiCallFinished += GameObject.Find("Version Number").GetComponent<VersionNumberText>().UpdateVersionNumber;
-        apiManager.apiCallFinished += APICheckDone;
-        apiManager.StartVersionCheck();
+        apiManager.success += VersionCheckComplete;
+        apiManager.Request("/api/v1/get-updates/" + currentVersion, true);
     }
 
-    public void APICheckDone()
+    public void VersionCheckComplete(string response)
     {
-        Destroy(GameObject.Find("API Indicator"));
-        GameObject.Find("Start").GetComponent<Text>().enabled = true;
-        GameObject.Find("Start").GetComponent<Button>().interactable = true;
-        GameObject.Find("Start").GetComponent<Button>().onClick.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome);
-        apiManager.apiCallFinished -= APICheckDone;
+        apiManager.success -= VersionCheckComplete;
+        VersionUpdateList updateList = JsonUtility.FromJson<VersionUpdateList>(response);
+        if (updateList.updates.Count == 0)
+        {
+            Transform t = GameObject.FindGameObjectWithTag("UiRoot").transform;
+            t.Find("Start").GetComponent<Button>().interactable = true;
+            t.Find("Start").GetComponent<Button>().onClick.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome);
+            t.Find("Start").GetComponent<Text>().enabled = true;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToUpdate(response);
+        }
     }
 
 }

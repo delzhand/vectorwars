@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5926456672792386801}
   - component: {fileID: 7108491768106573817}
   m_Layer: 5
-  m_Name: title
+  m_Name: Title Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953fde95b7efa416aa827f9ce2b91ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  versionNumberText: {fileID: 8162286565210080404}
 --- !u!1 &8162286564947555988
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ GameObject:
   - component: {fileID: 8162286565210080410}
   - component: {fileID: 8162286565210080408}
   m_Layer: 5
-  m_Name: Version Number
+  m_Name: VersionNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +319,7 @@ GameObject:
   - component: {fileID: 8162286566347788474}
   - component: {fileID: 8162286566347788472}
   m_Layer: 5
-  m_Name: Vector Wars Title
+  m_Name: GameTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,11 +383,11 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'VECTOR
 
-    WARS'
+    PROXY'
 --- !u!114 &8162286566347788472
 MonoBehaviour:
   m_ObjectHideFlags: 0

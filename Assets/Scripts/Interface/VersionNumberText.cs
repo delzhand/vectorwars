@@ -7,12 +7,11 @@ public class VersionNumberText : MonoBehaviour
 {
     public void Start()
     {
-        GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version");
+        UpdateVersionNumber();
     }
 
     public void UpdateVersionNumber()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>().apiCallFinished -= UpdateVersionNumber;
-        GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version");
+        GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version_label", "");
     }
 }

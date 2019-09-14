@@ -6,40 +6,52 @@ using UnityEngine.SceneManagement;
 
 public enum Screen
 {
-    title,
-    update,
-    home
+    Title,
+    Update,
+    Home
 }
 
 public class StateManager : MonoBehaviour
 {
     public Screen screen;
+    public bool resetPlayerPrefs = false;
+
 
     public void Start()
     {
+        if (resetPlayerPrefs)
+        {
+            PlayerPrefs.DeleteAll();
+        }
         DontDestroyOnLoad(gameObject);
-        LoadScreen(Screen.title);
+        LoadScreen(Screen.Title);
     }
 
 
     public void GoToHome()
     {
-        LoadScreen(Screen.home);
+        LoadScreen(Screen.Home);
     }
 
-    private void LoadScreen(Screen s)
+    public void GoToUpdate(string response)
+    {
+        GameObject g = LoadScreen(Screen.Update);
+        g.GetComponent<UpdateScreen>().updateList = JsonUtility.FromJson<VersionUpdateList>(response);
+    }
+
+    private GameObject LoadScreen(Screen s)
     {
         Transform toDestroy = GameObject.FindWithTag("UiRoot").transform.Find(screen.ToString());
         if (toDestroy)
         {
-            Console.Log("Unloading " + screen.ToString() + " element.");
+            Console.Log("Unloading " + screen.ToString() + " Screen element.");
             Destroy(toDestroy.gameObject);
         }
         screen = s;
-        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/" + s.ToString()), new Vector3(0, 0, 0), Quaternion.identity);
-        g.name = s.ToString();
         Transform uiRoot = GameObject.FindWithTag("UiRoot").transform;
-        g.transform.SetParent(uiRoot, false);
-        Console.Log("Loaded " + s.ToString() + " element.");
+        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/" + s.ToString() + " Screen"), uiRoot, false);
+        g.name = s.ToString();
+        Console.Log("Loaded " + s.ToString() + " Screen element.");
+        return g;
     }
 }

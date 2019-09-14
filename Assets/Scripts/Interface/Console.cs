@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -16,17 +17,23 @@ public class Console : MonoBehaviour
         {
             console.Dequeue();
         }
-        console.Enqueue(s);
+        console.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " - " + s);
     }
 
-    public void Update()
+    private string getOutput()
     {
         StringBuilder sb = new StringBuilder();
-        foreach (string s in console)
+        foreach (string s in Console.console)
         {
             sb.Append("\n");
             sb.Append(s);
         }
-        GetComponent<Text>().text = sb.ToString();
+        return sb.ToString();
+    }
+
+    public void Update()
+    {
+        string s = getOutput();
+        GetComponent<Text>().text = s;
     }
 }
