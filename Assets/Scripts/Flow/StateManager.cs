@@ -14,6 +14,8 @@ public enum Screen
 public class StateManager : MonoBehaviour
 {
     public Screen screen;
+    public PlayerData pdata;
+    public Transform UiRoot;
     public bool resetPlayerPrefs = false;
 
 
@@ -23,10 +25,17 @@ public class StateManager : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
+        pdata = new PlayerData();
+        pdata.DemoInit();
+
         DontDestroyOnLoad(gameObject);
         LoadScreen(Screen.Title);
     }
 
+    public static StateManager GetController()
+    {
+        return GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>();
+    }
 
     public void GoToHome()
     {
@@ -41,15 +50,14 @@ public class StateManager : MonoBehaviour
 
     private GameObject LoadScreen(Screen s)
     {
-        Transform toDestroy = GameObject.FindWithTag("UiRoot").transform.Find(screen.ToString());
+        Transform toDestroy = UiRoot.Find(screen.ToString());
         if (toDestroy)
         {
             Console.Log("Unloading " + screen.ToString() + " Screen element.");
             Destroy(toDestroy.gameObject);
         }
         screen = s;
-        Transform uiRoot = GameObject.FindWithTag("UiRoot").transform;
-        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/" + s.ToString() + " Screen"), uiRoot, false);
+        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/" + s.ToString() + " Screen"), UiRoot, false);
         g.name = s.ToString();
         Console.Log("Loaded " + s.ToString() + " Screen element.");
         return g;

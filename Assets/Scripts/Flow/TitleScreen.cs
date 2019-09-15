@@ -7,6 +7,7 @@ public class TitleScreen : MonoBehaviour
 {
     private APIManager apiManager;
     public GameObject versionNumberText;
+    public GameObject StartButton;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,9 @@ public class TitleScreen : MonoBehaviour
         VersionUpdateList updateList = JsonUtility.FromJson<VersionUpdateList>(response);
         if (updateList.updates.Count == 0)
         {
-            Transform t = GameObject.FindGameObjectWithTag("UiRoot").transform;
-            t.Find("Start").GetComponent<Button>().interactable = true;
-            t.Find("Start").GetComponent<Button>().onClick.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome);
-            t.Find("Start").GetComponent<Text>().enabled = true;
+            StartButton.GetComponent<Button>().interactable = true;
+            StartButton.GetComponent<Button>().onClick.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome);
+            StartButton.GetComponent<Text>().enabled = true;
         }
         else
         {
