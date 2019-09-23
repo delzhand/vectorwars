@@ -8,7 +8,6 @@ public class PlayerData
     public int Bits;
     public int Cores;
     public List<KeyValuePair<int, int>> Skills;
-    //public List<KeyValuePair<int, int>> VectorCores;
     public List<VectorLocal> VectorLocals;
 
     public void DemoInit()
@@ -24,6 +23,12 @@ public class PlayerData
         Skills.Add(new KeyValuePair<int, int>(5, 5));
         VectorLocals = new List<VectorLocal>();
         VectorLocals.Add(new VectorLocal(0, 3));
+        VectorLocals.Add(new VectorLocal(1, 3));
+        VectorLocals.Add(new VectorLocal(2, 3));
+        VectorLocals.Add(new VectorLocal(3, 4));
+        VectorLocals.Add(new VectorLocal(4, 4));
+        VectorLocals.Add(new VectorLocal(1, 3));
+        VectorLocals.Add(new VectorLocal(2, 3));
         VectorLocals.Add(new VectorLocal(1, 3));
         VectorLocals.Add(new VectorLocal(2, 3));
         VectorLocals.Add(new VectorLocal(4, 4));

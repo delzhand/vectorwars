@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   versionNumberText: {fileID: 8162286565210080404}
   StartButton: {fileID: 8162286564947555988}
+  SkipCheck: 1
 --- !u!1 &8162286564947555988
 GameObject:
   m_ObjectHideFlags: 0

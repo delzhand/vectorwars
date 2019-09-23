@@ -20,7 +20,6 @@ public class VectorCore
     public int mov;
     public string sprite;
 
-
     public static Dictionary<int, VectorCore> GetLibrary() {
         Dictionary<int, VectorCore> library = new Dictionary<int, VectorCore>();
         dev_generate_vector("Zone", 0, library);

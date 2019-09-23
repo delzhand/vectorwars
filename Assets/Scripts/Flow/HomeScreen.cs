@@ -24,19 +24,13 @@ public class HomeScreen : MonoBehaviour
             + "\nCores: " + pd.Cores;
 
         Dictionary<int, VectorCore> library = VectorCore.GetLibrary();
-        StringBuilder sb = new StringBuilder();
+        int counter = 0;
         foreach (VectorLocal vl in pd.VectorLocals)
         {
-            sb.Append(library[vl.Core].name);
-            sb.Append(" (");
-            for (int i = 0; i < vl.Rank; i++)
-            {
-                sb.Append("*");
-            }
-            sb.Append(") ");
-            sb.Append("Lv " + vl.Level);
-            sb.Append("\n");
+            VectorTile.Create(vl, Vector2.zero, GameObject.FindGameObjectWithTag("UiRoot").transform.Find("Home/Roster").transform);
+            counter++;
         }
-        RosterText.text = sb.ToString();
+        GameObject.FindGameObjectWithTag("UiRoot").transform.Find("Home/Roster").GetComponent<VectorTileGrid>().InitGrid();
+
     }
 }
