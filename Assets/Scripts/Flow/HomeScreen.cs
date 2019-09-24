@@ -22,15 +22,5 @@ public class HomeScreen : MonoBehaviour
         CurrencyText.text = "Circuits: " + pd.Circuits
             + "\nBits: " + pd.Bits
             + "\nCores: " + pd.Cores;
-
-        Dictionary<int, VectorCore> library = VectorCore.GetLibrary();
-        int counter = 0;
-        foreach (VectorLocal vl in pd.VectorLocals)
-        {
-            VectorTile.Create(vl, Vector2.zero, GameObject.FindGameObjectWithTag("UiRoot").transform.Find("Home/Roster").transform);
-            counter++;
-        }
-        GameObject.FindGameObjectWithTag("UiRoot").transform.Find("Home/Roster").GetComponent<VectorTileGrid>().InitGrid();
-
     }
 }

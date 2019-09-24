@@ -27,10 +27,5 @@ public class PlayerData
         VectorLocals.Add(new VectorLocal(2, 3));
         VectorLocals.Add(new VectorLocal(3, 4));
         VectorLocals.Add(new VectorLocal(4, 4));
-        VectorLocals.Add(new VectorLocal(1, 3));
-        VectorLocals.Add(new VectorLocal(2, 3));
-        VectorLocals.Add(new VectorLocal(1, 3));
-        VectorLocals.Add(new VectorLocal(2, 3));
-        VectorLocals.Add(new VectorLocal(4, 4));
     }
 }

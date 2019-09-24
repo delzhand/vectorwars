@@ -20,7 +20,7 @@ public class VectorTile : MonoBehaviour
     void Start()
     {
         transform.Find("Image").GetComponent<Image>().sprite = getSprite();
-        Text t = transform.Find("Bottom Text").GetComponent<Text>();
+        Text t = transform.Find("Label Background/Bottom Text").GetComponent<Text>();
         switch (mode)
         {
             case VectorTileDisplayMode.name:
