@@ -9,9 +9,11 @@ public class PlayerData
     public int Cores;
     public List<KeyValuePair<int, int>> Skills;
     public List<VectorLocal> VectorLocals;
+    public Squad4[] Squads;
 
     public void DemoInit()
     {
+        Squads = new Squad4[10];
         Circuits = 1000;
         Bits = 100;
         Cores = 15;

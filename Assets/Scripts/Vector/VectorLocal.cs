@@ -17,4 +17,9 @@ public class VectorLocal
         this.XP = 0;
         this.Acquired = DateTime.UtcNow;
     }
+
+    public override string ToString()
+    {
+        return DataManager.CoreLibrary[Core].name + " | Level " + Level + " | Rank " + Rank;
+    }
 }
