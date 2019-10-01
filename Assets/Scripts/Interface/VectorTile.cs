@@ -22,8 +22,23 @@ public class VectorTile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.Find("Image").GetComponent<Image>().sprite = getSprite();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void Populate(VectorLocal v)
+    {
+        VLocal = v;
+        Image i = transform.Find("Image").GetComponent<Image>();
+        i.sprite = getSprite();
+        i.enabled = true;
         Text t = transform.Find("Bottom Text").GetComponent<Text>();
+        t.enabled = true;
         switch (mode)
         {
             case VectorTileDisplayMode.name:
@@ -38,10 +53,11 @@ public class VectorTile : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Depopulate()
     {
-        
+        transform.Find("Image").GetComponent<Image>().enabled = false;
+        transform.Find("Bottom Text").GetComponent<Text>().enabled = false;
+        VLocal = null;
     }
 
     private Sprite getSprite()
@@ -62,78 +78,118 @@ public class VectorTile : MonoBehaviour
     public static GameObject Create(VectorLocal v, Vector2 position, Transform parent)
     {
         GameObject g = (GameObject)Instantiate(Resources.Load("Interface/Vector Tile"), new Vector3(position.x, position.y, 0), Quaternion.identity);
-        g.GetComponent<VectorTile>().VLocal = v;
+        g.GetComponent<VectorTile>().Populate(v);
         g.transform.SetParent(parent, false);
         return g;
     }
 
     public void Click()
     {
-        // Cases not handled:
-        // Something not in slot but with assigned slot selected, clicked in slot
+        // Variables:
+        // Is there a tile currently selected?
+        bool selectionExists = selected;
+        // Is the tile that's selected a slot?
+        bool selectionIsSlot = selectionExists && selected.GetComponent<VectorSlot>();
+        // Is the vectorLocal in the selection in a slot?
+        bool selectionVLocalAssignedToSlot = selectionExists && VectorSlot.isVectorAssignedAnySlot(selected.VLocal);
+        // Are any slots open?
+        bool anySlotsOpen = VectorSlot.AnySlotsOpen();
+        // Is the tile that's clicked a slot?
+        bool clickedIsSlot = GetComponent<VectorSlot>();
+        // Is the vectorLocal in the tile that's clicked in a slot?
+        bool clickedVLocalAssignedToSlot = VectorSlot.isVectorAssignedAnySlot(this.VLocal);
+        // Is the vectorLocal in the tile that's clicked a match for the selection vectorLocal?
+        bool clickedVLocalMatchesSelectionVLocal = selectionExists && (this.VLocal == selected.VLocal);
 
-        VectorSlot open = null;
-        VectorSlot thisAssignedSlot = null;
-        foreach (VectorSlot vs in FindObjectsOfType<VectorSlot>())
+        if (!selectionExists)
         {
-            open = vs.IsOpen() ? vs : open;
-            if (vs.SlotTile && vs.SlotTile.VLocal.Acquired == this.VLocal.Acquired)
+            if (!clickedIsSlot)
             {
-                thisAssignedSlot = vs;
+                if (anySlotsOpen && !clickedVLocalAssignedToSlot)
+                {
+                    VectorSlot.NextSlotOpen(true).GetComponent<VectorTile>().Populate(this.VLocal);
+                    return;
+                }
+                else
+                {
+                    Select();
+                    return;
+                }
+            }
+            else
+            {
+                Select();
+                return;
             }
         }
-        VectorSlot selectionInSlot = selected ? selected.InSlot() : null;
-
-        if (selected == null && open && thisAssignedSlot == null)
+        else
         {
-            Console.Log("Nothing selected, " + open.name + " open, no assigned slot");
-            open.Assign(this);
-        }
-        else if (selected == null && open && thisAssignedSlot)
-        {
-            Console.Log("Nothing selected, " + open.name + " open, already assigned slot");
-            Select();
-        }
-        else if (selected == null && !open)
-        {
-            Console.Log("Nothing selected, no slots open");
-            Select();
-        }
-        else if (selected == this)
-        {
-            Console.Log("Something selected, is this");
-            Deselect();
-        }
-        else if (selectionInSlot && thisAssignedSlot)
-        {
-            Console.Log("Something in slot selected, clicked in slot");
-            VectorTile temp = selectionInSlot.SlotTile;
-            selectionInSlot.Assign(this);
-            thisAssignedSlot.Assign(temp);
-            Deselect();
-        }
-        else if (!selectionInSlot && !this.InSlot())
-        {
-            Console.Log("Something not in slot selected, clicked not in slot");
-            Select();
-        }
-        else if (selected != null && selected != this && !selectionInSlot)
-        {
-            Console.Log("Something selected, not this, not in slot");
-            Deselect();
-        }
-        else if (selected != null && selected != this && selectionInSlot)
-        {
-            Console.Log("Something selected, not this, in slot");
-            selectionInSlot.Assign(this);
-            Deselect();
+            if (clickedVLocalMatchesSelectionVLocal)
+            {
+                Deselect();
+                return;
+            }
+            else
+            {
+                if (selectionIsSlot)
+                {
+                    if (clickedIsSlot)
+                    {
+                        Select();
+                        return;
+                    }
+                    else
+                    {
+                        if (clickedVLocalAssignedToSlot)
+                        {
+                            VectorTile tileA = VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>();
+                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>(); ;
+                            VectorLocal tmp = tileA.VLocal;
+                            tileA.Populate(tileB.VLocal);
+                            tileB.Populate(tmp);
+                            Deselect();
+                            return;
+                        }
+                        else
+                        {
+                            selected.Populate(this.VLocal);
+                            Deselect();
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (clickedIsSlot)
+                    {
+                        if (selectionVLocalAssignedToSlot)
+                        {
+                            VectorTile tileA = VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>();
+                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>(); ;
+                            VectorLocal tmp = tileA.VLocal;
+                            tileA.Populate(tileB.VLocal);
+                            tileB.Populate(tmp);
+                            Deselect();
+                            return;
+                        }
+                        else
+                        {
+                            VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>().Populate(selected.VLocal);
+                            Deselect();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Select();
+                        return;
+                    }
+                }
+            }
         }
     }
 
-    public VectorSlot InSlot()
-    {
-        return transform.parent.GetComponent<VectorSlot>();
-    }
+
 
     public void Select()
     {
@@ -153,7 +209,6 @@ public class VectorTile : MonoBehaviour
             selected = this;
             selected.transform.Find("Selected Border").GetComponent<Image>().enabled = true;
         }
-
     }
 
     public void Deselect()

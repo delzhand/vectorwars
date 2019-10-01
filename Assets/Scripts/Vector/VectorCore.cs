@@ -27,6 +27,7 @@ public class VectorCore
         dev_generate_vector("Kepler", 2, library);
         dev_generate_vector("Strix", 3, library);
         dev_generate_vector("01ivia", 4, library);
+        dev_generate_vector("Ganymede", 5, library);
         return library;
     }
 

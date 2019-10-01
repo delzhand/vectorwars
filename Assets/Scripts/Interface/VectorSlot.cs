@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VectorSlot : MonoBehaviour
 {
-    public VectorTile SlotTile; 
+    public int SquadIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -18,18 +19,70 @@ public class VectorSlot : MonoBehaviour
         
     }
 
-    public bool IsOpen()
+    public static bool AnySlotsOpen()
     {
-        return SlotTile == null;
+        foreach (VectorSlot vs in FindObjectsOfType<VectorSlot>())
+        {
+            if (vs.GetComponent<VectorTile>().VLocal == null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void Assign(VectorTile source)
+    public static VectorSlot NextSlotFilled(bool reverseOrder = false)
     {
-        SlotTile = VectorTile.Create(source.VLocal, Vector2.zero, transform).GetComponent<VectorTile>();
+        VectorSlot[] slots = FindObjectsOfType<VectorSlot>();
+        if (reverseOrder)
+        {
+            Array.Reverse(slots);
+        }
+        foreach (VectorSlot vs in slots)
+        {
+            if (vs.GetComponent<VectorTile>().VLocal != null)
+            {
+                return vs;
+            }
+        }
+        return null;
     }
 
-    public void Unassign()
+    public static VectorSlot NextSlotOpen(bool reverseOrder = false)
     {
+        VectorSlot[] slots = FindObjectsOfType<VectorSlot>();
+        Array.Reverse(slots);
+        foreach (VectorSlot vs in slots)
+        {
+            if (vs.GetComponent<VectorTile>().VLocal == null)
+            {
+                return vs;
+            }
+        }
+        return null;
+    }
 
+    public static bool isVectorAssignedAnySlot(VectorLocal vlocal)
+    {
+        foreach (VectorSlot vs in FindObjectsOfType<VectorSlot>())
+        {
+            if (vs.GetComponent<VectorTile>().VLocal == vlocal)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static VectorSlot whatSlotIsVectorAssigned(VectorLocal vlocal)
+    {
+        foreach (VectorSlot vs in FindObjectsOfType<VectorSlot>())
+        {
+            if (vs.GetComponent<VectorTile>().VLocal == vlocal)
+            {
+                return vs;
+            }
+        }
+        return null;
     }
 }

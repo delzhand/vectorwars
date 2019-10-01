@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,23 +9,15 @@ public class TitleScreen : MonoBehaviour
     private APIManager apiManager;
     public GameObject versionNumberText;
     public GameObject StartButton;
-    public bool SkipCheck;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!SkipCheck)
-        {
-            versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
-            string currentVersion = PlayerPrefs.GetString("version_id", "1");
-            apiManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>();
-            apiManager.success += VersionCheckComplete;
-            apiManager.Request("/api/v1/get-updates/" + currentVersion, true);
-        }
-        else
-        {
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome();
-        }
+        versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
+        string currentVersion = PlayerPrefs.GetString("version_id", "1");
+        apiManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>();
+        apiManager.success += VersionCheckComplete;
+        apiManager.Request("/api/v1/get-updates/" + currentVersion, true);
     }
 
     public void VersionCheckComplete(string response)

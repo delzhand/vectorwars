@@ -62,7 +62,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   versionNumberText: {fileID: 8162286565210080404}
   StartButton: {fileID: 8162286564947555988}
-  SkipCheck: 0
 --- !u!1 &8162286564947555988
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +100,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -455}
-  m_SizeDelta: {x: 85.1, y: 34.2}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8162286564947555995
 CanvasRenderer:

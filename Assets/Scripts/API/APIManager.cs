@@ -12,15 +12,11 @@ public class APIManager : MonoBehaviour
     public event APICallFinished success;
     public event APICallFinished failure;
 
-    public bool offline = false;
-    public string onlineUrl = "http://vector-wars.lndo.site";
-    public string offlineUrl = "http://localhost:32779";
-
-    private string baseUrl;
+    public bool UseAPI = false;
+    public string APIUrl = "";
 
     public void Start()
     {
-        baseUrl = offline ? offlineUrl : onlineUrl;
     }
 
     public void Request(string target, bool fullScreenIndicator = false)
@@ -29,12 +25,32 @@ public class APIManager : MonoBehaviour
         {
             ShowFullScreenIndicator();
         }
-        StartCoroutine(MakeApiCall(target));
+
+        if (UseAPI)
+        {
+            StartCoroutine(MakeApiCall(target));
+        }
+        else
+        {
+            // Use mocks
+            string requestUrl = APIUrl + target;
+            string mockResponse = getMockResponse(target);
+            Console.Log("Contacting " + requestUrl + " [MOCK]");
+            if (finish != null)
+            {
+                finish(mockResponse);
+            }
+            if (success != null)
+            {
+                success(mockResponse);
+            }
+        }
     }
 
     private IEnumerator MakeApiCall(string target)
     {
-        string requestUrl = baseUrl + target;
+        string requestUrl = APIUrl + target;
+
         UnityWebRequest www = UnityWebRequest.Get(requestUrl);
         Console.Log("Contacting " + requestUrl);
         yield return www.SendWebRequest();
@@ -81,4 +97,14 @@ public class APIManager : MonoBehaviour
         finish -= RemoveFullScreenIndicator;
     }
 
+    private string getMockResponse(string target)
+    {
+        switch (target)
+        {
+            case "/api/v1/get-updates/1":
+                return "{\"updates\":[{\"id\":\"3\",\"label\":\"0.1.2\"},{\"id\":\"4\",\"label\":\"0.1.3\"}]}";
+            default:
+                return "{}";
+        }
+    }
 }
