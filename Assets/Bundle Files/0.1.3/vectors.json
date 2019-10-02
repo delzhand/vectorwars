@@ -1,0 +1,48 @@
+{
+  "vectors": [
+    {
+      "id": 4,
+      "name": "Alice",
+      "mem": 0,
+      "con": 0,
+      "res": 0,
+      "pow": 0,
+      "mag": 0,
+      "spd": 0,
+      "mov": 0
+    },
+    {
+      "id": 5,
+      "name": "Aigis",
+      "mem": 0,
+      "con": 0,
+      "res": 0,
+      "pow": 0,
+      "mag": 0,
+      "spd": 0,
+      "mov": 0
+    },
+    {
+      "id": 6,
+      "name": "Optimus",
+      "mem": 0,
+      "con": 0,
+      "res": 0,
+      "pow": 0,
+      "mag": 0,
+      "spd": 0,
+      "mov": 0
+    },
+    {
+      "id": 7,
+      "name": "Cat",
+      "mem": 0,
+      "con": 0,
+      "res": 0,
+      "pow": 0,
+      "mag": 0,
+      "spd": 0,
+      "mov": 0
+    }
+  ]
+}

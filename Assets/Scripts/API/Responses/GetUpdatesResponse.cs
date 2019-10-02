@@ -6,6 +6,8 @@ public class VersionUpdate
 {
     public string id;
     public string label;
+    public string path;
+    public int size;
 }
 
 [Serializable]

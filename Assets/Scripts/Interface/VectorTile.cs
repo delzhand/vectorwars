@@ -62,7 +62,7 @@ public class VectorTile : MonoBehaviour
 
     private Sprite getSprite()
     {
-        string path = Path.Combine(Application.persistentDataPath, "GameData/Sprites/" + DataManager.CoreLibrary[VLocal.Core].name + "_sprite.png");
+        string path = Path.Combine(Application.persistentDataPath, "GameData/Sprites/" + VLocal.Core + "_sprite.png");
         if (File.Exists(path) == true)
         {
             byte[] bytes = File.ReadAllBytes(path);

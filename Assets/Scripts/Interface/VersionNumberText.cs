@@ -12,6 +12,6 @@ public class VersionNumberText : MonoBehaviour
 
     public void UpdateVersionNumber()
     {
-        GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version_label", "");
+        GetComponent<Text>().text = "Version: " + PlayerPrefs.GetString("version_label", "0.1.0");
     }
 }

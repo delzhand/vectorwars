@@ -8,19 +8,44 @@ using UnityEngine.Networking;
 public class APIManager : MonoBehaviour
 {
     public delegate void APICallFinished(string response);
-    public event APICallFinished finish;
-    public event APICallFinished success;
-    public event APICallFinished failure;
+    public delegate void DownloadFinished(AssetBundle response);
+    public event APICallFinished requestFinish;
+    public event APICallFinished requestSuccess;
+    public event APICallFinished requestFailure;
+    public event DownloadFinished downloadFinish;
+    public event DownloadFinished downloadSuccess;
+    public event DownloadFinished downloadFailure;
 
     public bool UseAPI = false;
-    public string APIUrl = "";
+    public string APIDomain = "";
 
-    public void Start()
+    private static string getURL(string id, string[] urlParams)
     {
+        switch (id)
+        {
+            case "getUpdates":
+                return "/api.php?route=get-updates&current=" + urlParams[0];
+            case "getUpdate":
+                return "/api.php?route=get-update&update=" + urlParams[0];
+            default:
+                return "";
+        }
     }
 
-    public void Request(string target, bool fullScreenIndicator = false)
+    public void Download(string target)
     {
+        StartCoroutine(MakeDownloadCall(target));
+    }
+
+    public void Request(string target, string urlParam, bool fullScreenIndicator = false)
+    {
+        Request(target, new string[] { urlParam }, fullScreenIndicator);
+    }
+
+    public void Request(string target, string[] urlParams, bool fullScreenIndicator = false)
+    {
+        target = getURL(target, urlParams);
+
         if (fullScreenIndicator)
         {
             ShowFullScreenIndicator();
@@ -33,23 +58,23 @@ public class APIManager : MonoBehaviour
         else
         {
             // Use mocks
-            string requestUrl = APIUrl + target;
+            string requestUrl = APIDomain + target;
             string mockResponse = getMockResponse(target);
             Console.Log("Contacting " + requestUrl + " [MOCK]");
-            if (finish != null)
+            if (requestFinish != null)
             {
-                finish(mockResponse);
+                requestFinish(mockResponse);
             }
-            if (success != null)
+            if (requestSuccess != null)
             {
-                success(mockResponse);
+                requestSuccess(mockResponse);
             }
         }
     }
 
     private IEnumerator MakeApiCall(string target)
     {
-        string requestUrl = APIUrl + target;
+        string requestUrl = APIDomain + target;
 
         UnityWebRequest www = UnityWebRequest.Get(requestUrl);
         Console.Log("Contacting " + requestUrl);
@@ -58,25 +83,60 @@ public class APIManager : MonoBehaviour
         if (www.isNetworkError || www.isHttpError)
         {
             Console.Log("Communication error: " + www.error);
-            if (finish != null)
+            if (requestFinish != null)
             {
-                finish(www.downloadHandler.text);
+                requestFinish(www.downloadHandler.text);
             }
-            if (failure != null)
+            if (requestFailure != null)
             {
-                failure(www.downloadHandler.text);
+                requestFailure(www.downloadHandler.text);
             }
         }
         else
         {
             Console.Log("Response acquired.");
-            if (finish != null)
+            if (requestFinish != null)
             {
-                finish(www.downloadHandler.text);
+                requestFinish(www.downloadHandler.text);
             }
-            if (success != null)
+            if (requestSuccess != null)
             {
-                success(www.downloadHandler.text);
+                requestSuccess(www.downloadHandler.text);
+            }
+        }
+    }
+
+    private IEnumerator MakeDownloadCall(string target)
+    {
+        string requestUrl = APIDomain + target;
+
+        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle(requestUrl);
+        Console.Log("Downloading " + requestUrl);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Console.Log("Communication error: " + www.error);
+            if (downloadFinish != null)
+            {
+                downloadFinish(null);
+            }
+            if (downloadFailure != null)
+            {
+                downloadFailure(null);
+            }
+        }
+        else
+        {
+            Console.Log("Download completed.");
+            AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
+            if (downloadFinish != null)
+            {
+                downloadFinish(bundle);
+            }
+            if (downloadSuccess != null)
+            {
+                downloadSuccess(bundle);
             }
         }
     }
@@ -87,22 +147,20 @@ public class APIManager : MonoBehaviour
         GameObject g = (GameObject)Instantiate(Resources.Load("Interface/API Indicator"), new Vector3(0, 0, 0), Quaternion.identity);
         g.name = "API Indicator";
         g.transform.SetParent(t, false);
-        finish += RemoveFullScreenIndicator;
+        requestFinish += RemoveFullScreenIndicator;
     }
 
     public void RemoveFullScreenIndicator(string response)
     {
         Transform t = GameObject.FindGameObjectWithTag("UiRoot").transform;
         Destroy(t.Find("API Indicator").gameObject);
-        finish -= RemoveFullScreenIndicator;
+        requestFinish -= RemoveFullScreenIndicator;
     }
 
     private string getMockResponse(string target)
     {
         switch (target)
         {
-            case "/api/v1/get-updates/1":
-                return "{\"updates\":[{\"id\":\"3\",\"label\":\"0.1.2\"},{\"id\":\"4\",\"label\":\"0.1.3\"}]}";
             default:
                 return "{}";
         }

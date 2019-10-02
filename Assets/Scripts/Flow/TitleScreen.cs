@@ -14,26 +14,32 @@ public class TitleScreen : MonoBehaviour
     void Start()
     {
         versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
-        string currentVersion = PlayerPrefs.GetString("version_id", "1");
         apiManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<APIManager>();
-        apiManager.success += VersionCheckComplete;
-        apiManager.Request("/api/v1/get-updates/" + currentVersion, true);
+    }
+
+    public void StartButtonClick()
+    {
+        string currentVersion = PlayerPrefs.GetString("version_id", "1");
+        apiManager.requestSuccess += VersionCheckComplete;
+        apiManager.Request("getUpdates", currentVersion, true);
     }
 
     public void VersionCheckComplete(string response)
     {
-        apiManager.success -= VersionCheckComplete;
+        apiManager.requestSuccess -= VersionCheckComplete;
         VersionUpdateList updateList = JsonUtility.FromJson<VersionUpdateList>(response);
+
+
         if (updateList.updates.Count == 0)
         {
-            StartButton.GetComponent<Button>().interactable = true;
-            StartButton.GetComponent<Button>().onClick.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome);
-            StartButton.GetComponent<Text>().enabled = true;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome();
         }
         else
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToUpdate(response);
         }
     }
+
+
 
 }

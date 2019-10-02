@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 4250769305
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7693f13e6d057cf2aeae7d27bbddc98e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5a2cc3ac1bf2df5d6fac8fdddb3e52ec
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Bundle Files/0.1.2/2_sprite.png
+- Assets/Bundle Files/0.1.2/0_sprite.png
+- Assets/Bundle Files/0.1.2/1_sprite.png
+- Assets/Bundle Files/0.1.2/vectors.json
+- Assets/Bundle Files/0.1.2/3_sprite.png
+Dependencies: []

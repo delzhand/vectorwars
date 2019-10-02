@@ -8,7 +8,6 @@ public class Roster : MonoBehaviour
     void Start()
     {
         PlayerData pd = StateManager.GetController().pdata;
-        Dictionary<int, VectorCore> library = VectorCore.GetLibrary();
         foreach (VectorLocal vl in pd.VectorLocals)
         {
             VectorTile.Create(vl, Vector2.zero, transform);

@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 public class HomeScreen : MonoBehaviour
 {
-    public Text CurrencyText;
-    public Text RosterText;
-    public Text SkillsText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +15,9 @@ public class HomeScreen : MonoBehaviour
         g.name = "Main Menu";
 
         PlayerData pd = sm.pdata;
-        CurrencyText.text = "Circuits: " + pd.Circuits
-            + "\nBits: " + pd.Bits
-            + "\nCores: " + pd.Cores;
+
+        transform.Find("Currency/Cores Label/Text").GetComponent<Text>().text = "Cores: " + pd.Cores;
+        transform.Find("Currency/Bits Label/Text").GetComponent<Text>().text = "Bits: " + pd.Bits;
+        transform.Find("Currency/Circuits Label/Text").GetComponent<Text>().text = "Circuits: " + pd.Circuits;
     }
 }
