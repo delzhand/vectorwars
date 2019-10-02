@@ -51,12 +51,21 @@ public class VectorTile : MonoBehaviour
                 t.text = "Rank " + VLocal.Rank;
                 break;
         }
+
+        t = transform.Find("Rank Text").GetComponent<Text>();
+        t.enabled = true;
+        t.text = "";
+        for (int j = 0; j < VLocal.Rank; j++)
+        {
+            t.text += "★";
+        }
     }
 
     public void Depopulate()
     {
         transform.Find("Image").GetComponent<Image>().enabled = false;
         transform.Find("Bottom Text").GetComponent<Text>().enabled = false;
+        transform.Find("Rank Text").GetComponent<Text>().enabled = false;
         VLocal = null;
     }
 

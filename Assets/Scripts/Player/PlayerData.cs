@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerData
 {
+    public string PlayerName;
     public int Circuits;
     public int Bits;
     public int Cores;
@@ -13,6 +14,7 @@ public class PlayerData
 
     public void DemoInit()
     {
+        PlayerName = "Fukurou";
         Squads = new Squad4[10];
         Circuits = 1000;
         Bits = 100;
