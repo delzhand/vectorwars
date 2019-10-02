@@ -40,6 +40,10 @@ public class TitleScreen : MonoBehaviour
         }
     }
 
-
+    public void DeletePlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
+    }
 
 }

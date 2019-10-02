@@ -49,9 +49,13 @@ public class DataManager : MonoBehaviour
             {
                 Texture2D t = bundle.LoadAsset<Texture2D>(assetName);
                 string filename = Path.GetFileName(assetName);
-                string path = Path.Combine(Application.persistentDataPath, "GameData/Sprites/" + filename);
+                string path = Path.Combine(Application.persistentDataPath, "GameData/Sprites/");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
                 byte[] bytes = t.EncodeToPNG();
-                File.WriteAllBytes(path, bytes);
+                File.WriteAllBytes(path + filename, bytes);
                 Console.Log("Sprite " + assetName + " saved.");
             }
         }
