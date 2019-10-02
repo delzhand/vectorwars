@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef801d77979724308a61503041ca2652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAPI: 0
-  APIUrl: 
+  UseAPI: 1
+  APIDomain: http://vectorproxy.website
 --- !u!4 &748340243
 Transform:
   m_ObjectHideFlags: 0
@@ -359,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screen: 0
   pdata:
+    PlayerName: 
     Circuits: 0
     Bits: 0
     Cores: 0
@@ -582,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.29783732, g: 0.4026421, b: 0.6509434, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
