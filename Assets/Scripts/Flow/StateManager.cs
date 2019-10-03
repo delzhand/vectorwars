@@ -16,21 +16,11 @@ public class StateManager : MonoBehaviour
     public Screen screen;
     public PlayerData pdata;
     public Transform UiRoot;
-    public bool resetPlayerPrefs = false;
-
 
     public void Start()
     {
-        if (resetPlayerPrefs)
-        {
-            PlayerPrefs.DeleteAll();
-        }
+        pdata.DemoInit();
         pdata = PlayerData.Load();
-        if (pdata == null)
-        {
-            pdata = new PlayerData();
-            pdata.DemoInit();
-        }
 
         DontDestroyOnLoad(gameObject);
         LoadScreen(Screen.Title);
