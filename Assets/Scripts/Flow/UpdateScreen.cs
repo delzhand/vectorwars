@@ -78,7 +78,6 @@ public class UpdateScreen : MonoBehaviour
     {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("Downloading update " + updateList.updates[index].label + "\n" + (index + 1) + " of " + updateList.updates.Count);
-        sb.AppendLine(percent + "%");
 
         float thisBytes = percent / 100f * updateList.updates[index].size;
         float totalBytes = 0;
