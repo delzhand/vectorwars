@@ -8,16 +8,38 @@ using UnityEngine.Networking;
 public class APIManager : MonoBehaviour
 {
     public delegate void APICallFinished(string response);
+    public delegate void DownloadProgress(float percent);
     public delegate void DownloadFinished(AssetBundle response);
     public event APICallFinished requestFinish;
     public event APICallFinished requestSuccess;
     public event APICallFinished requestFailure;
+    public event DownloadProgress downloadProgress;
     public event DownloadFinished downloadFinish;
     public event DownloadFinished downloadSuccess;
     public event DownloadFinished downloadFailure;
 
     public bool UseAPI = false;
     public string APIDomain = "";
+
+
+    //public void TestDownload()
+    //{
+    //    StartCoroutine(GetDummyfile());
+    //}
+
+    //public IEnumerator GetDummyfile()
+    //{
+    //    string url = "http://vectorproxy.website/files/updates/android/dummyfile";
+    //    using (var uwr = UnityWebRequest.Get(url))
+    //    {
+    //        var operation = uwr.SendWebRequest();
+    //        while (!operation.isDone)
+    //        {
+    //            Console.Log("Progress: " + uwr.downloadProgress * 100);
+    //            yield return null;
+    //        }
+    //    }
+    //}
 
     private static string getURL(string id, string[] urlParams)
     {
@@ -75,7 +97,6 @@ public class APIManager : MonoBehaviour
     private IEnumerator MakeApiCall(string target)
     {
         string requestUrl = APIDomain + target;
-
         UnityWebRequest www = UnityWebRequest.Get(requestUrl);
         Console.Log("Contacting " + requestUrl);
         yield return www.SendWebRequest();
@@ -109,10 +130,17 @@ public class APIManager : MonoBehaviour
     private IEnumerator MakeDownloadCall(string target)
     {
         string requestUrl = APIDomain + target;
-
         UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle(requestUrl);
+        UnityWebRequestAsyncOperation operation = www.SendWebRequest();
         Console.Log("Downloading " + requestUrl);
-        yield return www.SendWebRequest();
+        while (!operation.isDone)
+        {
+            if (downloadProgress != null)
+            {
+                downloadProgress(www.downloadProgress * 100f);
+            }
+            yield return null;
+        }
 
         if (www.isNetworkError || www.isHttpError)
         {

@@ -441,7 +441,6 @@ MonoBehaviour:
     VectorLocals: []
     Squads: []
   UiRoot: {fileID: 427477319}
-  resetPlayerPrefs: 0
 --- !u!1 &813125967
 GameObject:
   m_ObjectHideFlags: 0

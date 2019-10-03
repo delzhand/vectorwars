@@ -21,11 +21,17 @@ public class UpdateScreen : MonoBehaviour
 
     public void StartUpdates()
     {
-        GameObject.Destroy(transform.Find("Modal").gameObject);
-
+        Destroy(transform.Find("Modal").gameObject);
+        apiManager.downloadProgress += DownloadProgress;
         apiManager.downloadSuccess += DownloadReceived;
         apiManager.Download(updateList.updates[index].path);
-        updateVersionUpdateText();
+        updateVersionUpdateText(0);
+    }
+
+    public void DownloadProgress(float progress)
+    {
+        updateVersionUpdateText(progress);
+        //Console.Log("download progress: " + progress);
     }
 
     public void DownloadReceived(AssetBundle bundle)
@@ -36,12 +42,13 @@ public class UpdateScreen : MonoBehaviour
         index++;
         if (index <= updateList.updates.Count - 1)
         {
-            updateVersionUpdateText();
+            updateVersionUpdateText(100f);
             apiManager.Download(updateList.updates[index].path);
         }
         else
         {
             apiManager.downloadSuccess -= DownloadReceived;
+            apiManager.downloadProgress -= DownloadProgress;
             GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome();
         }
     }
@@ -61,15 +68,38 @@ public class UpdateScreen : MonoBehaviour
         transform.Find("Modal/Background/Text").GetComponent<Text>().text = sb.ToString();
     }
 
-    private void updateVersionUpdateText()
+    private void updateVersionUpdateText(float percent)
     {
         versionUpdateText.SetActive(true);
-        versionUpdateText.GetComponent<Text>().text = getVersionUpdateText();
+        versionUpdateText.GetComponent<Text>().text = getVersionUpdateText(percent);
     }
 
-    private string getVersionUpdateText()
+    private string getVersionUpdateText(float percent)
     {
-        return "Downloading update " + updateList.updates[index].label + "\n" + (index + 1) + " of " + updateList.updates.Count;
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("Downloading update " + updateList.updates[index].label + "\n" + (index + 1) + " of " + updateList.updates.Count);
+        sb.AppendLine(percent + "%");
+
+        float thisBytes = percent / 100f * updateList.updates[index].size;
+        float totalBytes = 0;
+        foreach (VersionUpdate vu in updateList.updates)
+        {
+            totalBytes += vu.size;
+        }
+        float downloadedBytes = 0;
+        for (int i = 0; i < index; i++)
+        {
+            downloadedBytes += updateList.updates[i].size;
+        }
+        downloadedBytes += thisBytes;
+        float totalPercent = downloadedBytes / totalBytes * 100f;
+
+        sb.AppendLine(Mathf.RoundToInt(percent) + "% of " + Mathf.RoundToInt(updateList.updates[index].size * .001f) + "KB");
+        sb.AppendLine(Mathf.RoundToInt(totalPercent) + "% of " + Mathf.RoundToInt(totalBytes * .001f) + "KB");
+
+        Console.Log(sb.ToString());
+
+        return sb.ToString();
     }
 
     private string formatBytes(int bytes)

@@ -33,7 +33,7 @@ public class PlayerData
     public static PlayerData Load()
     {
         string json = PlayerPrefs.GetString("PlayerData", null);
-        if (json == null)
+        if (json.Length == 0)
         {
             return null;
         }
