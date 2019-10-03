@@ -25,8 +25,12 @@ public class StateManager : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
-        pdata = new PlayerData();
-        pdata.DemoInit();
+        pdata = PlayerData.Load();
+        if (pdata == null)
+        {
+            pdata = new PlayerData();
+            pdata.DemoInit();
+        }
 
         DontDestroyOnLoad(gameObject);
         LoadScreen(Screen.Title);
@@ -61,5 +65,33 @@ public class StateManager : MonoBehaviour
         g.name = s.ToString();
         Console.Log("Loaded " + s.ToString() + " Screen element.");
         return g;
+    }
+
+    public static void DismissSubscreens()
+    {
+        foreach (GameObject off in GameObject.FindGameObjectsWithTag("Subscreen"))
+        {
+            Animator a = off.GetComponent<Animator>();
+            if (a != null)
+            {
+                off.GetComponent<Animator>().StopPlayback();
+                off.GetComponent<Animator>().Play("OutLeft");
+                RuntimeAnimatorController r = off.GetComponent<Animator>().runtimeAnimatorController;
+                float transitionOffTime = 0;
+                foreach(AnimationClip ac in r.animationClips)
+                {
+                    if (ac.name == "OutLeft")
+                    {
+                        transitionOffTime = ac.length - .01f;
+                    }
+                }
+                Destroy(off, transitionOffTime);
+            }
+            else
+            {
+                Destroy(off);
+            }
+
+        }
     }
 }

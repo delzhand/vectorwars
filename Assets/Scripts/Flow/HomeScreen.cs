@@ -17,10 +17,4 @@ public class HomeScreen : MonoBehaviour
         transform.Find("Player Data/Currency/Circuits Label/Text").GetComponent<Text>().text = "Circuits: " + pd.Circuits;
         transform.Find("Player Data/PlayerName Label/Text").GetComponent<Text>().text = pd.PlayerName;
     }
-
-    public void VectorsButtonClick()
-    {
-        GameObject g = (GameObject)Instantiate(Resources.Load("Interface/Vector Menu"), StateManager.GetController().UiRoot, false);
-        g.name = "Vector Menu";
-    }
 }

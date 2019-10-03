@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef801d77979724308a61503041ca2652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAPI: 1
+  UseAPI: 0
   APIDomain: http://vectorproxy.website
 --- !u!4 &748340243
 Transform:
@@ -438,6 +438,7 @@ MonoBehaviour:
     Circuits: 0
     Bits: 0
     Cores: 0
+    VectorLocals: []
     Squads: []
   UiRoot: {fileID: 427477319}
   resetPlayerPrefs: 0

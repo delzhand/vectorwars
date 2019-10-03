@@ -117,6 +117,7 @@ public class VectorTile : MonoBehaviour
                 if (anySlotsOpen && !clickedVLocalAssignedToSlot)
                 {
                     VectorSlot.NextSlotOpen(true).GetComponent<VectorTile>().Populate(this.VLocal);
+                    FindObjectOfType<SquadAssignment>().SaveSquad();
                     return;
                 }
                 else
@@ -152,17 +153,19 @@ public class VectorTile : MonoBehaviour
                         if (clickedVLocalAssignedToSlot)
                         {
                             VectorTile tileA = VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>();
-                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>(); ;
+                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>();
                             VectorLocal tmp = tileA.VLocal;
                             tileA.Populate(tileB.VLocal);
                             tileB.Populate(tmp);
                             Deselect();
+                            FindObjectOfType<SquadAssignment>().SaveSquad();
                             return;
                         }
                         else
                         {
                             selected.Populate(this.VLocal);
                             Deselect();
+                            FindObjectOfType<SquadAssignment>().SaveSquad();
                             return;
                         }
                     }
@@ -174,17 +177,19 @@ public class VectorTile : MonoBehaviour
                         if (selectionVLocalAssignedToSlot)
                         {
                             VectorTile tileA = VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>();
-                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>(); ;
+                            VectorTile tileB = VectorSlot.whatSlotIsVectorAssigned(selected.VLocal).GetComponent<VectorTile>();
                             VectorLocal tmp = tileA.VLocal;
                             tileA.Populate(tileB.VLocal);
                             tileB.Populate(tmp);
                             Deselect();
+                            FindObjectOfType<SquadAssignment>().SaveSquad();
                             return;
                         }
                         else
                         {
                             VectorSlot.whatSlotIsVectorAssigned(this.VLocal).GetComponent<VectorTile>().Populate(selected.VLocal);
                             Deselect();
+                            FindObjectOfType<SquadAssignment>().SaveSquad();
                             return;
                         }
                     }

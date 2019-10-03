@@ -8,9 +8,12 @@ public class Roster : MonoBehaviour
     void Start()
     {
         PlayerData pd = StateManager.GetController().pdata;
-        foreach (VectorLocal vl in pd.VectorLocals)
+        for (int i = 0; i < pd.VectorLocals.Length; i++)
         {
-            VectorTile.Create(vl, Vector2.zero, transform);
+            if (pd.VectorLocals[i] != null)
+            {
+                VectorTile.Create(pd.VectorLocals[i], Vector2.zero, transform);
+            }
         }        
     }
 

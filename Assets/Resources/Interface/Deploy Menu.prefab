@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6654533496964082223}
   - component: {fileID: 2059422238736632883}
-  - component: {fileID: 7315723455626839733}
-  - component: {fileID: 2409401529883218258}
-  - component: {fileID: 1633988175261968509}
+  - component: {fileID: 7358154642218184339}
+  - component: {fileID: 3284893668402177720}
   m_Layer: 5
-  m_Name: Vector Menu
+  m_Name: Deploy Menu
   m_TagString: Subscreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,19 +47,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4409741776951389006}
   m_CullTransparentMesh: 0
---- !u!114 &7315723455626839733
-MonoBehaviour:
+--- !u!225 &7358154642218184339
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4409741776951389006}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef9cc78240164f028b3e6de97b871d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &2409401529883218258
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &3284893668402177720
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -79,18 +78,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!225 &1633988175261968509
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4409741776951389006}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &4544473169285317761
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,9 +347,7 @@ PrefabInstance:
     - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_Text
-      value: 'Equip
-
-        Vector'
+      value: Battle 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
@@ -492,44 +477,7 @@ PrefabInstance:
     - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_Text
-      value: 'Form
-
-        Squads'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485924233881805885, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7315723455626839733}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FormSquadsClicked
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Battle 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
