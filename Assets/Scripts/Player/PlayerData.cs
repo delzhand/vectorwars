@@ -12,22 +12,24 @@ public class PlayerData
     public VectorLocal[] VectorLocals;
     public Squad4[] Squads;
 
-    public void DemoInit()
+    public static PlayerData DemoInit()
     {
-        PlayerName = "Fukurou";
-        Squads = new Squad4[10];
-        Circuits = 1000;
-        Bits = 100;
-        Cores = 15;
-        VectorLocals = new VectorLocal[100];
-        VectorLocals[0] = new VectorLocal(0, 3);
-        VectorLocals[1] = new VectorLocal(1, 3);
-        VectorLocals[2] = new VectorLocal(2, 3);
-        VectorLocals[3] = new VectorLocal(3, 4);
-        VectorLocals[4] = new VectorLocal(4, 4);
-        VectorLocals[5] = new VectorLocal(5, 4);
-        VectorLocals[6] = new VectorLocal(6, 4);
-        VectorLocals[7] = new VectorLocal(7, 4);
+        PlayerData pd = new PlayerData();
+        pd.PlayerName = "Fukurou";
+        pd.Squads = new Squad4[10];
+        pd.Circuits = 1000;
+        pd.Bits = 100;
+        pd.Cores = 15;
+        pd.VectorLocals = new VectorLocal[100];
+        pd.VectorLocals[0] = new VectorLocal(0, 3);
+        pd.VectorLocals[1] = new VectorLocal(1, 3);
+        pd.VectorLocals[2] = new VectorLocal(2, 3);
+        pd.VectorLocals[3] = new VectorLocal(3, 4);
+        pd.VectorLocals[4] = new VectorLocal(4, 4);
+        pd.VectorLocals[5] = new VectorLocal(5, 4);
+        pd.VectorLocals[6] = new VectorLocal(6, 4);
+        pd.VectorLocals[7] = new VectorLocal(7, 4);
+        return pd;
     }
 
     public static PlayerData Load()
