@@ -70,12 +70,6 @@ public class UpdateScreen : MonoBehaviour
 
     private void updateVersionUpdateText(float percent)
     {
-        versionUpdateText.SetActive(true);
-        versionUpdateText.GetComponent<Text>().text = getVersionUpdateText(percent);
-    }
-
-    private string getVersionUpdateText(float percent)
-    {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("Downloading update " + updateList.updates[index].label + "\n" + (index + 1) + " of " + updateList.updates.Count);
 
@@ -93,13 +87,18 @@ public class UpdateScreen : MonoBehaviour
         downloadedBytes += thisBytes;
         float totalPercent = downloadedBytes / totalBytes * 100f;
 
-        sb.AppendLine(Mathf.RoundToInt(percent) + "% of " + Mathf.RoundToInt(updateList.updates[index].size * .001f) + "KB");
-        sb.AppendLine(Mathf.RoundToInt(totalPercent) + "% of " + Mathf.RoundToInt(totalBytes * .001f) + "KB");
+        ProgressBar current = transform.Find("UpdateText/CurrentProgress").GetComponent <ProgressBar>();
+        ProgressBar total = transform.Find("UpdateText/TotalProgress").GetComponent<ProgressBar>();
 
-        Console.Log(sb.ToString());
+        current.max = updateList.updates[index].size;
+        current.SetValue(thisBytes);
+        total.max = totalBytes;
+        total.SetValue(downloadedBytes);
 
-        return sb.ToString();
+        versionUpdateText.SetActive(true);
+        versionUpdateText.GetComponent<Text>().text = sb.ToString();
     }
+
 
     private string formatBytes(int bytes)
     {

@@ -18,28 +18,7 @@ public class APIManager : MonoBehaviour
     public event DownloadFinished downloadSuccess;
     public event DownloadFinished downloadFailure;
 
-    public bool UseAPI = false;
     public string APIDomain = "";
-
-
-    //public void TestDownload()
-    //{
-    //    StartCoroutine(GetDummyfile());
-    //}
-
-    //public IEnumerator GetDummyfile()
-    //{
-    //    string url = "http://vectorproxy.website/files/updates/android/dummyfile";
-    //    using (var uwr = UnityWebRequest.Get(url))
-    //    {
-    //        var operation = uwr.SendWebRequest();
-    //        while (!operation.isDone)
-    //        {
-    //            Console.Log("Progress: " + uwr.downloadProgress * 100);
-    //            yield return null;
-    //        }
-    //    }
-    //}
 
     private static string getURL(string id, string[] urlParams)
     {
@@ -73,7 +52,7 @@ public class APIManager : MonoBehaviour
             ShowFullScreenIndicator();
         }
 
-        if (UseAPI)
+        if (PlayerPrefs.GetInt("OfflineMode", 0) == 0)
         {
             StartCoroutine(MakeApiCall(target));
         }

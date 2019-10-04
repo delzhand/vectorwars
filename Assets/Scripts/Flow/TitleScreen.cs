@@ -39,11 +39,4 @@ public class TitleScreen : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToUpdate(response);
         }
     }
-
-    public void DeletePlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-        versionNumberText.GetComponent<VersionNumberText>().UpdateVersionNumber();
-    }
-
 }

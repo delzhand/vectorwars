@@ -72,4 +72,11 @@ public class PlayerData
             }
         }
     }
+
+    public override string ToString()
+    {
+        string json = JsonUtility.ToJson(this);
+        CleanupNulls(this);
+        return json;
+    }
 }
