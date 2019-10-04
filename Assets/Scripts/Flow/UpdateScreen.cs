@@ -49,10 +49,14 @@ public class UpdateScreen : MonoBehaviour
         {
             apiManager.downloadSuccess -= DownloadReceived;
             apiManager.downloadProgress -= DownloadProgress;
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome();
+            transform.Find("UpdateText/Done Button").gameObject.SetActive(true);
         }
     }
 
+    public void UpdatesFinished()
+    {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<StateManager>().GoToHome();
+    }
 
     private void updateModalText()
     {

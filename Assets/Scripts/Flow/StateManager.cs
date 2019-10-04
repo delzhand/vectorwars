@@ -19,7 +19,6 @@ public class StateManager : MonoBehaviour
 
     public void Start()
     {
-        pdata = PlayerData.DemoInit();
         pdata = PlayerData.Load();
 
         DontDestroyOnLoad(gameObject);

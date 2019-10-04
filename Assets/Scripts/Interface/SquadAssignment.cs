@@ -18,7 +18,7 @@ public class SquadAssignment : MonoBehaviour
 
         for (int i = 0; i <= 3; i++)
         {
-            if (pd.Squads[SquadIndex].vectors[i] != null)
+            if (pd.Squads[SquadIndex].vectors[i])
             {
                 transform.Find("Grid/Slot " + i).GetComponent<VectorTile>().Populate(pd.Squads[SquadIndex].vectors[i]);
             }

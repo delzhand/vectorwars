@@ -1,0 +1,907 @@
+fileFormatVersion: 2
+guid: 0a58e62fa17a3154a8566a8da1c3962f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 393797226308061494
+    second: marth_0
+  - first:
+      213: -2462173209493306037
+    second: marth_1
+  - first:
+      213: -5870789724340216036
+    second: marth_2
+  - first:
+      213: 7995666272792325349
+    second: marth_3
+  - first:
+      213: 3170851055889198363
+    second: marth_4
+  - first:
+      213: 547392558391789958
+    second: marth_5
+  - first:
+      213: -573052448049156866
+    second: marth_6
+  - first:
+      213: 8253640787438039111
+    second: marth_7
+  - first:
+      213: 1007520575700274231
+    second: marth_8
+  - first:
+      213: 2308236466560164469
+    second: marth_9
+  - first:
+      213: 2868877536615819634
+    second: marth_10
+  - first:
+      213: -5723047847188618157
+    second: marth_11
+  - first:
+      213: 664739188353145599
+    second: marth_12
+  - first:
+      213: -7969624687808059210
+    second: marth_13
+  - first:
+      213: 8595824638562080890
+    second: marth_14
+  - first:
+      213: -8983710593703634281
+    second: marth_15
+  - first:
+      213: -4135080757118801891
+    second: marth_16
+  - first:
+      213: -1111170622314010919
+    second: marth_17
+  - first:
+      213: -3723791341541701754
+    second: marth_18
+  - first:
+      213: -3801881966593143629
+    second: marth_19
+  - first:
+      213: 7439815831715067195
+    second: marth_20
+  - first:
+      213: 996708200500758925
+    second: marth_21
+  - first:
+      213: -8889477040943551764
+    second: marth_22
+  - first:
+      213: -7152911923676785164
+    second: marth_23
+  - first:
+      213: 7568179028059224581
+    second: marth_24
+  - first:
+      213: -8110248990539693602
+    second: marth_25
+  - first:
+      213: -5432881251332732152
+    second: marth_26
+  - first:
+      213: -2737624356076849956
+    second: marth_27
+  - first:
+      213: -7582357412097989101
+    second: marth_28
+  - first:
+      213: -3686369837841025437
+    second: marth_29
+  - first:
+      213: -3468120033814111709
+    second: marth_30
+  - first:
+      213: -8834493058343462544
+    second: marth_31
+  - first:
+      213: -9171013105693465775
+    second: marth_32
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: marth_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 550
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba21485f55bf0c4cbbab36447c7f459
+      internalID: 393797226308061494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 550
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0b1e20dad846b4e9345fa8edbbc3d0
+      internalID: -2462173209493306037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 550
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a67ed8e177f7b4798aae0c5cca235a
+      internalID: -5870789724340216036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 588
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509264f7e2bde5449bce5473249dfcbd
+      internalID: 7995666272792325349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_4
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 529
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2765fad3c94ca624e9b93aef2d42f029
+      internalID: 3170851055889198363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 443
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3679f2fc1f02bf5499098188d1617716
+      internalID: 547392558391789958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_6
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 454
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93121978d53837148975b4fbd23be7e9
+      internalID: -573052448049156866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 441
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771de1b94ce5a8a4a8e7c7976bb4906a
+      internalID: 8253640787438039111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_8
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 459
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4024c1ded5e97408d5002611a628bf
+      internalID: 1007520575700274231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 453
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a479f73aa485c40b2b855ed687b906
+      internalID: 2308236466560164469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 455
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc964fb18059c240b42a264be2dfbd7
+      internalID: 2868877536615819634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_11
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 454
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e0f1259ebe66a479dc0a04188540f5
+      internalID: -5723047847188618157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_12
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 451
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fef4721d5cd7a49acca3869d8e5d09
+      internalID: 664739188353145599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 378
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d75b8b5bd4e8548af481750add9808
+      internalID: -7969624687808059210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 377
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efd3969336a7a84fb906945c3888b1a
+      internalID: 8595824638562080890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_15
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 378
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b51e4c0c7609584ebe7e0a0afe09446
+      internalID: -8983710593703634281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_16
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 376
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca03dc10fc38a58449706de0f84fe3ab
+      internalID: -4135080757118801891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_17
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 359
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6aee2df37881ab449d1677f7d242364
+      internalID: -1111170622314010919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_18
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 360
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb84212649d8004e92c935f668c903a
+      internalID: -3723791341541701754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 300
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431b7a8a5173b3041b501bc5851331e6
+      internalID: -3801881966593143629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_20
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 313
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd3c7c3640b8534cb5c2e0cd91e0f6e
+      internalID: 7439815831715067195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_21
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 313
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8548901e2f01eb4ba209167808faf5b
+      internalID: 996708200500758925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_22
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 322
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7e5a5f8b3bccf479cfa5aa8d640c79
+      internalID: -8889477040943551764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_23
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 241
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83428e4d454c22141bdecc23c307198a
+      internalID: -7152911923676785164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d75028340fce74099bdd2c863c980e
+      internalID: 7568179028059224581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_25
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 227
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6516d6317fbc3e4f92b2b7402d0ccc6
+      internalID: -8110248990539693602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 92
+        width: 120
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014acac8dcdbaad4b8f0ccbd4b70ee3c
+      internalID: -5432881251332732152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_27
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 197
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30864ec56e2fa04c9041e9e40dca3e5
+      internalID: -2737624356076849956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_28
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 116
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b963c04d96944c42b444c443e74cbb3
+      internalID: -7582357412097989101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_29
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 99
+        width: 130
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f424b41b466a624b9bdab408011ed1c
+      internalID: -3686369837841025437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 134
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697ab9a3fb8720440b35365539dc32e2
+      internalID: -3468120033814111709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_31
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 146
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a853a079cad94b74ba73adadb62349a8
+      internalID: -8834493058343462544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marth_32
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 4
+        width: 135
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0ce50952f6f9343b08ce334d033aae
+      internalID: -9171013105693465775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

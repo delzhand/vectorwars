@@ -26,6 +26,6 @@ public class VectorLocal
 
     public static implicit operator bool (VectorLocal v)
     {
-        return v.Rank > 0;
+        return v != null && v.Rank > 0;
     }
 }

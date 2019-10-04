@@ -137,6 +137,10 @@ public class APIManager : MonoBehaviour
         {
             Console.Log("Download completed.");
             AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(www);
+            if (downloadProgress != null)
+            {
+                downloadProgress(www.downloadProgress * 100f);
+            }
             if (downloadFinish != null)
             {
                 downloadFinish(bundle);

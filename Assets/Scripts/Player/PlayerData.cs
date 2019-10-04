@@ -29,6 +29,7 @@ public class PlayerData
         pd.VectorLocals[5] = new VectorLocal(5, 4);
         pd.VectorLocals[6] = new VectorLocal(6, 4);
         pd.VectorLocals[7] = new VectorLocal(7, 4);
+        pd.Save();
         return pd;
     }
 
