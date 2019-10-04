@@ -10,7 +10,7 @@ public class Roster : MonoBehaviour
         PlayerData pd = StateManager.GetController().pdata;
         for (int i = 0; i < pd.VectorLocals.Length; i++)
         {
-            if (pd.VectorLocals[i] != null)
+            if (pd.VectorLocals[i])
             {
                 VectorTile.Create(pd.VectorLocals[i], Vector2.zero, transform);
             }

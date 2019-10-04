@@ -23,7 +23,7 @@ public class VectorSlot : MonoBehaviour
     {
         foreach (VectorSlot vs in FindObjectsOfType<VectorSlot>())
         {
-            if (vs.GetComponent<VectorTile>().VLocal == null)
+            if (!vs.GetComponent<VectorTile>().VLocal)
             {
                 return true;
             }
@@ -40,7 +40,7 @@ public class VectorSlot : MonoBehaviour
         }
         foreach (VectorSlot vs in slots)
         {
-            if (vs.GetComponent<VectorTile>().VLocal != null)
+            if (vs.GetComponent<VectorTile>().VLocal)
             {
                 return vs;
             }
@@ -54,7 +54,7 @@ public class VectorSlot : MonoBehaviour
         Array.Reverse(slots);
         foreach (VectorSlot vs in slots)
         {
-            if (vs.GetComponent<VectorTile>().VLocal == null)
+            if (!vs.GetComponent<VectorTile>().VLocal)
             {
                 return vs;
             }

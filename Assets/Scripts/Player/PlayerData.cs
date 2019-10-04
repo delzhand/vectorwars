@@ -38,7 +38,6 @@ public class PlayerData
             return null;
         }
         PlayerData pd = JsonUtility.FromJson<PlayerData>(json);
-        CleanupNulls(pd);
         return pd;
     }
 
@@ -46,7 +45,6 @@ public class PlayerData
     {
         string json = JsonUtility.ToJson(this);
         PlayerPrefs.SetString("PlayerData", json);
-        CleanupNulls(this);
     }
 
     public void Upload()
@@ -54,29 +52,8 @@ public class PlayerData
 
     }
 
-    private static void CleanupNulls(PlayerData pd)
-    {
-        // Unity serialization doesn't support null custom classes, so we
-        // need to look for a value that indications something is actually
-        // null.
-
-
-        // For vectorlocals, core would be best, probably, but the default
-        // player character is core id 0, so we'll use Rank, since it's
-        // impossible for a VectorLocal to be rank 0.
-        for (int i = 0; i < pd.VectorLocals.Length; i++)
-        {
-            if (pd.VectorLocals[i].Rank == 0)
-            {
-                pd.VectorLocals[i] = null;
-            }
-        }
-    }
-
     public override string ToString()
     {
-        string json = JsonUtility.ToJson(this);
-        CleanupNulls(this);
-        return json;
+        return JsonUtility.ToJson(this);
     }
 }

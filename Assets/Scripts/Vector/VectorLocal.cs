@@ -23,4 +23,9 @@ public class VectorLocal
     {
         return DataManager.CoreLibrary[Core].name + " | Level " + Level + " | Rank " + Rank;
     }
+
+    public static implicit operator bool (VectorLocal v)
+    {
+        return v.Rank > 0;
+    }
 }
