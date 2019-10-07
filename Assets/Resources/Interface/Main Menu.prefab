@@ -173,6 +173,8 @@ GameObject:
   - component: {fileID: 6771531401850283014}
   - component: {fileID: 5109867353507776313}
   - component: {fileID: 4124172761496890855}
+  - component: {fileID: 8073992580447601427}
+  - component: {fileID: 1297682020141520488}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -221,6 +223,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b80a7874a0d46f69e153e41d483425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &8073992580447601427
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029693888530296956}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1297682020141520488
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029693888530296956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9c13519d354b4ad08f152356f9f729c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1022154852788765015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -338,11 +371,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_Text
-      value: Config
-      objectReference: {fileID: 0}
     - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -372,6 +400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
+        type: 3}
+      propertyPath: m_Text
+      value: Config
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
@@ -498,11 +531,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_Text
-      value: Deploy
-      objectReference: {fileID: 0}
     - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -557,6 +585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
+        type: 3}
+      propertyPath: m_Text
+      value: Deploy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
@@ -683,11 +716,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_Text
-      value: Vectors
-      objectReference: {fileID: 0}
     - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -742,6 +770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
+        type: 3}
+      propertyPath: m_Text
+      value: Vectors
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
@@ -868,11 +901,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_Text
-      value: Generate
-      objectReference: {fileID: 0}
     - target: {fileID: 6738314184860712973, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_Name
@@ -907,6 +935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
+        type: 3}
+      propertyPath: m_Text
+      value: Generate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
@@ -1033,11 +1066,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
-        type: 3}
-      propertyPath: m_Text
-      value: Home
-      objectReference: {fileID: 0}
     - target: {fileID: 1651572854236507581, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1083,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8029693888530296956}
+    - target: {fileID: 848243395903673649, guid: 9cfc4e5dc97f2d043913448ad464eaf2,
+        type: 3}
+      propertyPath: m_Text
+      value: Home
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfc4e5dc97f2d043913448ad464eaf2, type: 3}
 --- !u!224 &2316773978985718439 stripped

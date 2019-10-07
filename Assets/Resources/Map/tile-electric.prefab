@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8495732430422140767, guid: c9894767b0c6f42b99c1881e92190795,
         type: 3}
       propertyPath: m_Name
-      value: tile-standard
+      value: tile-electric
       objectReference: {fileID: 0}
     - target: {fileID: 2023511848389657379, guid: c9894767b0c6f42b99c1881e92190795,
         type: 3}
@@ -68,6 +68,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7050827344919386810, guid: c9894767b0c6f42b99c1881e92190795,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 844a46de0cdf7425eb2a5328df04f6d0,
+        type: 3}
+    - target: {fileID: 7050827344919386810, guid: c9894767b0c6f42b99c1881e92190795,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660955086525331107, guid: c9894767b0c6f42b99c1881e92190795,
         type: 3}
       propertyPath: m_Sprite
       value: 

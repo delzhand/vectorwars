@@ -11,7 +11,7 @@ public class DevButtons : MonoBehaviour
         transform.Find("Grid/Button2/Text").GetComponent<Text>().text = "Delete Prefs";
         transform.Find("Grid/Button3/Text").GetComponent<Text>().text = "DemoInit PData";
         transform.Find("Grid/Button4/Text").GetComponent<Text>().text = PlayerPrefs.GetInt("OfflineMode", 0) == 0 ? "Offline Mode" : "Online Mode";
-        transform.Find("Grid/Button5/Text").GetComponent<Text>().text = "N/A";
+        transform.Find("Grid/Button5/Text").GetComponent<Text>().text = "Hide Menus";
     }
 
 
@@ -51,7 +51,9 @@ public class DevButtons : MonoBehaviour
 
     public void Button5()
     {
-        Console.Log("Nothing assigned.");
+        Console.Log("Menus Hidden.");
+        StateManager.GetController().UiRoot.Find("Home/Player Data").GetComponent<Animator>().Play("OutTop");
+        StateManager.GetController().UiRoot.Find("Home/Main Menu").GetComponent<Animator>().Play("OutBottom");
     }
 
 }

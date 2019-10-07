@@ -11,7 +11,7 @@ public class VectorCore
 {
     public int id;
     public string name;
-    public int mem;
+    public int hp;
     public int con;
     public int res;
     public int pow;
