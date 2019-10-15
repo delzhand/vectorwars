@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UiRoot
   - Subscreen
+  - CombatController
   layers:
   - Default
   - TransparentFX

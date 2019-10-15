@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyEntryPoint : MonoBehaviour
 {
-    public int X;
-    public int Y;
     public VectorCombat VCombat;
 
     // Start is called before the first frame update
