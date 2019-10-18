@@ -16,7 +16,6 @@ public class MapController : MonoBehaviour
         {
             generateMap();
         }
-        PopulateEnemies();
     }
 
     // Update is called once per frame
@@ -41,15 +40,6 @@ public class MapController : MonoBehaviour
                 g.transform.SetParent(row.transform, true);
 
             }
-        }
-    }
-
-    private void PopulateEnemies()
-    {
-        foreach (EnemyEntryPoint eep in FindObjectsOfType<EnemyEntryPoint>())
-        {
-            Tile t = eep.GetComponent<Tile>();
-            GameObject vectorAvatar = (GameObject)Instantiate(Resources.Load("Character/DemoVector"), eep.transform.position, Quaternion.identity);
         }
     }
 }

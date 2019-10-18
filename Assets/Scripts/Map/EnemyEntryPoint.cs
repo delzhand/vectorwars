@@ -9,7 +9,7 @@ public class EnemyEntryPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject vectorAvatar = (GameObject)Instantiate(Resources.Load("Character/DemoVector"), GetComponent<Tile>().GetTop(), Quaternion.identity);
     }
 
     // Update is called once per frame
