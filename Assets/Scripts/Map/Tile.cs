@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
     {
         Vector3 p = transform.position;
         RaycastHit r;
-        Physics.Raycast(transform.position + new Vector3(0, 100, 0), Vector3.down, out r, 100);
+        Physics.Raycast(transform.position + new Vector3(0, 5, 0), Vector3.down, out r, 100);
         p.y = r.point.y;
         return p;
     }
